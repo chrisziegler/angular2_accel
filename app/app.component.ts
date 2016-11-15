@@ -5,8 +5,7 @@ import { RaceSchedComponent } from './race-sched.component';
 @Component({
     selector: 'my-app',
     template: `<h1>{{title}}</h1>
-      <race-sched></race-sched>`,
-    directives: [RaceSchedComponent]
+      <race-sched></race-sched>`
 })
 export class AppComponent {
     title = "Ultra Racing Supersite";

@@ -1,0 +1,12 @@
+<h2>{{heading}}</h2>
+<p>There are {{totalEntrySlots()}} total entry slots available for racers.</p>
+<ul>
+    <li *ngFor="let race of races">
+        <h3 class="name">{{race.name | uppercase}}</h3>
+        <p>{{race.date | date:'MMM d, y, h:mm a' }}</p>
+        <p>{{race.about}}</p>
+        <p class="price">{{race.price | currency:'USD':true}}</p>
+        <button *ngIf="race.isRacing === false">Enter Race</button>
+        <h4 *ngIf="race.isRacing === true">Already Racing</h4>
+    </li>
+</ul>

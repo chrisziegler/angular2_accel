@@ -9,7 +9,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var race_sched_component_1 = require('./race-sched.component');
 var AppComponent = (function () {
     function AppComponent() {
         this.title = "Ultra Racing Supersite";
@@ -17,8 +16,7 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "<h1>{{title}}</h1>\n      <race-sched></race-sched>",
-            directives: [race_sched_component_1.RaceSchedComponent]
+            template: "<h1>{{title}}</h1>\n      <race-sched></race-sched>"
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
