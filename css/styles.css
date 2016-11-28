@@ -1,0 +1,341 @@
+/*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    BASE (standard element resets, etc)
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - - */
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Open-Sans', sans-serif;
+  font-weight: 300;
+  font-size: 100%;
+  background: #282727;
+}
+
+.wrapper {
+  width: 96%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 0;
+}
+
+.product-info {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  color: #010004
+}
+
+.name {
+  background-color: #E2E1E1;
+  text-align: center;
+  border: 1px solid black;
+}
+
+.date {
+  font-style: oblique;
+  font-weight: 600;
+}
+
+.promotions {
+  display: inline-block;
+  font-weight: 700;
+  font-style: oblique;
+}
+
+.space-right {
+  padding-left: 5px;
+  font-style: normal;
+}
+
+.text-input {
+  width: 22px;
+  background-color: #8D9190;
+  color: #000;
+  padding-left: 5px;
+  font-weight: 400;
+  font-size: 11px;
+}
+
+.decrease {
+  margin-left: 12px;
+  margin-right: 2px;
+  border-radius: 1px;
+  border: 1px solid #566963;
+  cursor: pointer;
+  background-color: #000;
+  color: #FFF;
+  font-family: 'Roboto', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  padding: 0 5px 0 5px;
+  text-decoration: none;
+  text-shadow: 0px -1px 0px #2b665e;
+}
+
+.increase {
+  margin-left: 1px;
+  border-radius: 1px;
+  border: 1px solid #566963;
+  cursor: pointer;
+  background-color: #000;
+  color: #FFF;
+  font-family: 'Roboto', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  padding: 0 4px 0 4px;
+  text-decoration: none;
+  text-shadow: 0px -1px 0px #2b665e;
+}
+
+td {
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+td.left-col {
+  width: 275px;
+}
+
+td.right-col {}
+
+
+/* BUTTON STYLES */
+
+.color-change {
+  width: 80px;
+  border-radius: 5px;
+  font-size: 11px;
+  padding: 2px 1px;
+  cursor: pointer;
+  color: #fff;
+  background-color: #00A6FF;
+  font-family: 'Roboto';
+  font-weight: 400;
+  border: 1px solid #c0c1c2;
+  box-shadow: 1px 1px 2px #AFE9FF;
+  transition-duration: 0.25s;
+  -webkit-transition-duration: 0.25s;
+  -moz-transition-duration: 0.25s;
+}
+
+.color-change:hover {
+  border: 1px solid #FFF;
+  font-weight: 300;
+  box-shadow: 1px 1px 2px #AFE9FF;
+}
+
+
+/*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Now when we set a width, that element stays that width, despite
+padding or borders being applied.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
+
+*,
+*:after,
+*:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+
+/*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    HEADER & NAV
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
+
+a:link {
+  color: #000;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #000;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.top-left {
+  height: 50px;
+  padding-top: 5px;
+}
+
+#brand {
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.8em;
+  font-weight: 700;
+  font-style: oblique;
+  color: #00A6FF;
+  text-shadow: 1px 1px #FFF;
+}
+
+.panel-body {
+  background: #c0c1c2;
+  width: 100%;
+  padding: 1em;
+  margin-bottom: 2em;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+li {
+  font-family: 'Open-Sans', sans-serif;
+  font-size: 1.1em;
+  font-weight: 700;
+  padding: 0 0 5px 15px;
+}
+
+p {
+  margin-bottom: 1em;
+  line-height: 1.5em;
+}
+
+.white-head {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2em;
+  color: #FFF;
+}
+
+.already-racing {
+  display: inline-block;
+  margin-right: 10px;
+  color: #3e3d3d;
+  font-weight: 700;
+  font-style: oblique;
+}
+
+.entry-fee {
+  display: inline-block;
+  margin-right: 10px;
+  color: tomato;
+  font-weight: 700;
+}
+
+
+/* CLEARFIX -- APPLY TO PARENT CONTAINER ELEMENT */
+
+.group:after {
+  visibility: hidden;
+  display: block;
+  content: "";
+  clear: both;
+  height: 0;
+}
+
+
+/*header h1 {
+    background: url(../images/keiko_logo.png) 0 0 no-repeat;
+    width: 136px;
+    height: 50px;
+    text-indent: -9999px;
+}*/
+
+
+/*
+/*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   HERO/Full Viewport Image
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
+
+
+/*.banner {
+    clear: both;
+}
+.banner img {
+    width: 100%;
+}
+.cite {
+    text-align: right;
+}
+.italic {
+    font-style: italic;
+}
+
+/*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    MAIN CONTENT & CUSTOM FLUID CSS GRID
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
+
+
+/*.grid h1 {
+    font-family: 'Open-Sans', sans-serif;
+    font-size: 1.6em;
+    font-weight: 700;
+    margin-bottom: .6em;
+}
+.grid p {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1.2em;
+}
+.col-2-3 {
+    width: 66.66%;
+}
+.col-1-3 {
+    width: 33%;
+    /* background-clip: content-box;  Keeps bgcolor out of padding
+  just gave a bgcolor to p tag.
+  background-color: #f2f2f2; */
+
+
+/*  :last-of-type apparently does not work with classes - CSS TRICKS wrong */
+
+
+/*[class*='col-'] {
+  float: left;
+  margin: 2em 0;
+  padding-right: 3em;
+}
+.col-1-3 {
+  padding-right: 0;
+}
+
+/*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+applying a fixed padding to the right side of all columns except the last one
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
+
+
+/*aside p {
+  background-color: #f2f2f2;
+}*/
+
+
+/* Media Queries */
+
+
+/*@media screen and (max-width: 480px) {
+
+    .top-left {
+      height: 55px;
+      width: 100%auto;
+    }
+
+ .top-right, .col-2-3, .col-1-3 {
+        clear: both;
+        width: 100%;
+    }
+
+
+    .banner {
+        clear: both;
+
+    }
+    nav ul {
+        width: 100%;
+
+    }
+    nav li {
+        background: #efefef;
+        display: block;
+        margin: 3px 0 3px;
+
+    }
+    nav a {
+        display: block;
+        padding: 10px;
+        text-align: center;
+    }
+}*/

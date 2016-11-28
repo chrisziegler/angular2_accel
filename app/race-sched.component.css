@@ -3,6 +3,12 @@
      font-weight: bold;
  }
  
- .price {
-     color: tomato;
+ .photo {
+     height: auto;
+     max-width: 300px;
+     border: 2px solid black;
+ }
+ 
+ .card {
+     float: left;
  }

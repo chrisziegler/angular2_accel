@@ -6,5 +6,10 @@ export class Racing   {
         entryFee: number;
         slots: number;
         isRacing: boolean;
-        price: number;
-    }
+        tshirt: number;
+        quantity: number;
+        stock: number;
+        image: string;
+    };
+
+

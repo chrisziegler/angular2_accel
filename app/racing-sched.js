@@ -5,4 +5,5 @@ var Racing = (function () {
     return Racing;
 }());
 exports.Racing = Racing;
+;
 //# sourceMappingURL=racing-sched.js.map

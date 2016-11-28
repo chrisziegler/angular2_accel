@@ -9,40 +9,84 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+// import { RACING } from './mocks'; tested - didn't need import with SERVICES and (inject)
+var racing_data_service_1 = require('./racing-data.service');
 var RaceSchedComponent = (function () {
-    function RaceSchedComponent() {
+    function RaceSchedComponent(racingDataService) {
+        this.racingDataService = racingDataService;
         this.heading = "Ultra Racing Schedule";
-        this.races = [{
-                "id": 1,
-                "name": "Daytona Thunderdome",
-                "date": new Date('2017-01-04T14:00:00'),
-                "about": "Race through the ruins of an ancient Florida battle arena.",
-                "entryFee": 3200,
-                "slots": 3,
-                "isRacing": false,
-                "price": 4.99
-            }, {
-                "id": 2,
-                "name": "San Francisco Ruins",
-                "date": new Date('2017-07-03T20:00:00'),
-                "about": "Drift down the streets of a city almost sunk under the ocean.",
-                "entryFee": 4700,
-                "slots": 1,
-                "isRacing": true,
-                "price": 6.99
-            }, {
-                "id": 3,
-                "name": "New York City Skyline",
-                "date": new Date('2017-07-12T21:00:00'),
-                "about": "Fly between buildings in the electronic sky.",
-                "entryFee": 4300,
-                "slots": 7,
-                "isRacing": false,
-                "price": 7.48
-            }];
+        this.cash = 10000;
     }
+    //     the constructor injects our dependency
+    //     private generates javascript that looks like this:
+    //     function RaceSchedComponent(racingDataService) {
+    //        this.racingDataService = racingDataService;
+    //     }
+    /* MOVED TO MOCKS.TS */
+    // races: Racing[] = [{
+    //     "id": 1,
+    //     "name": "Daytona Thunderdome",
+    //     "date": new Date('2017-01-04T14:00:00'),
+    //     "about": "Race through the ruins of an ancient Florida battle arena.",
+    //     "entryFee": 3200,
+    //     "slots": 3,
+    //     "isRacing": false,
+    //     "price": 4.99
+    // },{...}
+    // ];
+    RaceSchedComponent.prototype.ngOnInit = function () {
+        this.races = this.racingDataService.getRaces();
+    };
+    ;
+    RaceSchedComponent.prototype.totalCost = function () {
+        var sum = 0;
+        for (var _i = 0, _a = this.races; _i < _a.length; _i++) {
+            var race = _a[_i];
+            if (race.isRacing)
+                sum += race.entryFee;
+            if (race.quantity)
+                sum += (race.quantity * race.tshirt);
+        }
+        return sum;
+    };
+    ;
+    RaceSchedComponent.prototype.cashLeft = function () {
+        var formatted_balance = this.cash - this.totalCost();
+        return formatted_balance.toFixed(2);
+    };
+    ;
     RaceSchedComponent.prototype.totalEntrySlots = function () {
-        return this.races.reduce(function (prev, current) { return prev + current.slots; }, 0);
+        return this.races.reduce(function (prev, current) {
+            return prev + current.slots;
+        }, 0);
+    };
+    ;
+    RaceSchedComponent.prototype.upQuantity = function (race) {
+        if (race.stock > 0) {
+            race.quantity++;
+            race.stock--;
+        }
+    };
+    ;
+    RaceSchedComponent.prototype.downQuantity = function (race) {
+        if (race.quantity != 0) {
+            race.quantity--;
+            race.stock++;
+        }
+        ;
+        // inStock(event) {
+        //      race.stock = event.target.value;
+        //     }; //have to learn the right way to handle passing this event
+    };
+    ;
+    RaceSchedComponent.prototype.enterRace = function (race) {
+        if (this.cashLeft() > race.entryFee) {
+            race.isRacing = true;
+            race.slots--;
+        }
+        else {
+            alert("You don't have enough cash hombre");
+        }
     };
     ;
     RaceSchedComponent = __decorate([
@@ -51,38 +95,10 @@ var RaceSchedComponent = (function () {
             templateUrl: 'app/race-sched.component.html',
             styleUrls: ['app/race-sched.component.css']
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [racing_data_service_1.RacingDataService])
     ], RaceSchedComponent);
     return RaceSchedComponent;
 }());
 exports.RaceSchedComponent = RaceSchedComponent;
-// template: `<h2>{{heading}}</h2>
-// <p>There are {{totalEntrySlots()}} total entry slots available for racers.</p>
-// <ul>
-//   <li *ngFor="let race of races">
-//     <h3 class="name">{{race.name | uppercase}}</h3>
-//     <p>{{race.date | date:'MMM d, y, h:mm a' }}</p>
-//     <p>{{race.about}}</p>
-//     <p class="price">{{race.price | currency:'EUR':true}}</p>
-//     <button *ngIf="race.isRacing === false" >Enter Race</button>
-//     <h4 *ngIf="race.isRacing === true" >Already Racing</h4>
-//   </li>
-// </ul>
-// `,
-// styles: [`
-//     .name {
-//         color: #444;
-//         font-weight: bold;
-//     }
-//     .price {
-//     color: tomato;
-// }
-// `]
-// totalEntrySlots() {
-//     let sum = 0;
-//     for (let race of this.races) {
-//         sum += race.slots;
-//     }
-//     return sum; 
-// }
+;
 //# sourceMappingURL=race-sched.component.js.map
