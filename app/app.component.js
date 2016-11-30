@@ -9,6 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+// import {RacingDataService} from './racing-data.service';
 var AppComponent = (function () {
     function AppComponent() {
         this.title = "Ultra Racing Supersite";
@@ -23,11 +24,7 @@ var AppComponent = (function () {
     return AppComponent;
 }());
 exports.AppComponent = AppComponent;
-// totalEntrySlots() {
-//     let sum = 0;
-//     for (let race of this.races) {
-//         sum += race.slots;
-//     }
-//     return sum; 
-// }
+// This is a top level component that we load our other components into  
+// We could design the templateURL as a temolate for the structure of our page, 
+// or just include sitewide components like header, footers, and the nav, here
 //# sourceMappingURL=app.component.js.map

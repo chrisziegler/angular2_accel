@@ -18,7 +18,7 @@ export class RaceSchedComponent {
     constructor(private racingDataService: RacingDataService) {}
 
 //     the constructor injects our dependency
-//     private generates javascript that looks like this:
+//     (this syntax with) private generates javascript that looks like this:
 //     function RaceSchedComponent(racingDataService) {
 //        this.racingDataService = racingDataService;
 //     }
