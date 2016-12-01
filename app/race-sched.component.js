@@ -35,30 +35,38 @@ var RaceSchedComponent = (function () {
     // },{...}
     // ];
     RaceSchedComponent.prototype.ngOnInit = function () {
-        this.races = this.racingDataService.getRaces();
+        var _this = this;
+        this.racingDataService.getRaces()
+            .subscribe(function (races) { return _this.races = races; });
     };
     ;
     RaceSchedComponent.prototype.totalCost = function () {
         var sum = 0;
-        for (var _i = 0, _a = this.races; _i < _a.length; _i++) {
-            var race = _a[_i];
-            if (race.isRacing)
-                sum += race.entryFee;
-            if (race.quantity)
-                sum += (race.quantity * race.tshirt);
+        if (Array.isArray(this.races)) {
+            for (var _i = 0, _a = this.races; _i < _a.length; _i++) {
+                var race = _a[_i];
+                if (race.isRacing)
+                    sum += race.entryFee;
+                if (race.quantity)
+                    sum += (race.quantity * race.tshirt);
+            }
         }
         return sum;
     };
     ;
     RaceSchedComponent.prototype.cashLeft = function () {
-        var formatted_balance = this.cash - this.totalCost();
-        return formatted_balance.toFixed(2);
+        if (Array.isArray(this.races)) {
+            var formatted_balance = this.cash - this.totalCost();
+            return formatted_balance.toFixed(2);
+        }
     };
     ;
     RaceSchedComponent.prototype.totalEntrySlots = function () {
-        return this.races.reduce(function (prev, current) {
-            return prev + current.slots;
-        }, 0);
+        if (Array.isArray(this.races)) {
+            return this.races.reduce(function (prev, current) {
+                return prev + current.slots;
+            }, 0);
+        }
     };
     ;
     RaceSchedComponent.prototype.upQuantity = function (race) {

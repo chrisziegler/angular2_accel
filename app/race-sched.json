@@ -1,0 +1,36 @@
+{
+    "data": [{
+        "id": 1,
+        "name": "Daytona Thunderdome",
+        "about": "Race through the ruins of an ancient Florida battle arena.",
+        "entryFee": 3200,
+        "slots": 3,
+        "isRacing": false,
+        "tshirt": 14.99,
+        "quantity": 0,
+        "stock": 5,
+        "image": "/images/daytona.jpg"
+    }, {
+        "id": 2,
+        "name": "San Francisco Ruins",
+        "about": "Drift down the streets of a city almost sunk under the ocean.",
+        "entryFee": 4700,
+        "slots": 1,
+        "isRacing": true,
+        "tshirt": 15.49,
+        "quantity": 0,
+        "stock": 10,
+        "image": "/images/sf.jpg"
+    }, {
+        "id": 3,
+        "name": "Desert Death Rally",
+        "about": "Avoid the Locals and the 5-0 in this Scorcher.",
+        "entryFee": 4300,
+        "slots": 7,
+        "isRacing": false,
+        "tshirt": 17.95,
+        "quantity": 0,
+        "stock": 3,
+        "image": "/images/desert.jpg"
+    }]
+}

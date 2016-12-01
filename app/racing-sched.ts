@@ -1,7 +1,6 @@
 export class Racing   {
         id: number;
         name: string;
-        date: Date;
         about : string;
         entryFee: number;
         slots: number;
@@ -13,3 +12,4 @@ export class Racing   {
     };
 
 
+      // date: Date; //removed when added service handling json data

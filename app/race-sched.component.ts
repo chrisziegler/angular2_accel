@@ -37,24 +37,31 @@ export class RaceSchedComponent {
     // ];
 
     ngOnInit() {
-        this.races = this.racingDataService.getRaces();
+       this.racingDataService.getRaces()
+       .subscribe(races => this.races = races);
     };
     totalCost() {
         let sum = 0;
+        if (Array.isArray(this.races)) {
         for (let race of this.races) {
             if (race.isRacing) sum += race.entryFee;
             if (race.quantity) sum += (race.quantity * race.tshirt);
         }
+        }
         return sum;
     };
     cashLeft() {
+              if (Array.isArray(this.races)) {  //added, delete if breaking
         let formatted_balance = this.cash - this.totalCost();
         return formatted_balance.toFixed(2);
+              }
     };
     totalEntrySlots() {
+               if (Array.isArray(this.races)) {  //added, delete if breaking
         return this.races.reduce(function (prev, current) {
             return prev + current.slots;
         }, 0)
+               }
     };
     upQuantity(race) {
         if (race.stock > 0) {
