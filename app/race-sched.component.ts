@@ -40,6 +40,7 @@ export class RaceSchedComponent {
        this.racingDataService.getRaces()
        .subscribe(races => this.races = races);
     };
+
     totalCost() {
         let sum = 0;
         if (Array.isArray(this.races)) {
@@ -50,19 +51,29 @@ export class RaceSchedComponent {
         }
         return sum;
     };
+
     cashLeft() {
               if (Array.isArray(this.races)) {  //added, delete if breaking
         let formatted_balance = this.cash - this.totalCost();
         return formatted_balance.toFixed(2);
               }
     };
+
     totalEntrySlots() {
-               if (Array.isArray(this.races)) {  //added, delete if breaking
-        return this.races.reduce(function (prev, current) {
-            return prev + current.slots;
-        }, 0)
+               if (Array.isArray(this.races)) {  
+     return this.races.reduce((prev, current) => prev + current.slots, 0);
                }
-    };
+    };  
+
+
+    // totalEntrySlots() {
+    //            if (Array.isArray(this.races)) {  //added, delete if breaking
+    //     return this.races.reduce(function (prev, current) {
+    //         return prev + current.slots;
+    //     }, 0)
+    //            }
+    // };
+
     upQuantity(race) {
         if (race.stock > 0) {
             race.quantity++;

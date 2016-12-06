@@ -63,12 +63,17 @@ var RaceSchedComponent = (function () {
     ;
     RaceSchedComponent.prototype.totalEntrySlots = function () {
         if (Array.isArray(this.races)) {
-            return this.races.reduce(function (prev, current) {
-                return prev + current.slots;
-            }, 0);
+            return this.races.reduce(function (prev, current) { return prev + current.slots; }, 0);
         }
     };
     ;
+    // totalEntrySlots() {
+    //            if (Array.isArray(this.races)) {  //added, delete if breaking
+    //     return this.races.reduce(function (prev, current) {
+    //         return prev + current.slots;
+    //     }, 0)
+    //            }
+    // };
     RaceSchedComponent.prototype.upQuantity = function (race) {
         if (race.stock > 0) {
             race.quantity++;

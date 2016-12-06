@@ -1,3 +1,6 @@
+
+// NO LONGER USED MOCKS CLASS - USE racing-sched.js for testing
+
 // import { Racing } from './racing-sched';
 
 // export const RACING: Racing[] = [{
