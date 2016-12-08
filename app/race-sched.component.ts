@@ -43,7 +43,7 @@ export class RaceSchedComponent {
 
     totalCost() {
         let sum = 0;
-        if (Array.isArray(this.races)) {
+        if (this.races) {
         for (let race of this.races) {
             if (race.isRacing) sum += race.entryFee;
             if (race.quantity) sum += (race.quantity * race.tshirt);
@@ -53,7 +53,7 @@ export class RaceSchedComponent {
     };
 
     cashLeft() {
-              if (Array.isArray(this.races)) {  //added, delete if breaking
+              if (Array.isArray(this.races)) {  //(this.races) by itself works
         let formatted_balance = this.cash - this.totalCost();
         return formatted_balance.toFixed(2);
               }

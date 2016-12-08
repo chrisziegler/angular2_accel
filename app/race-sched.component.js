@@ -42,7 +42,7 @@ var RaceSchedComponent = (function () {
     ;
     RaceSchedComponent.prototype.totalCost = function () {
         var sum = 0;
-        if (Array.isArray(this.races)) {
+        if (this.races) {
             for (var _i = 0, _a = this.races; _i < _a.length; _i++) {
                 var race = _a[_i];
                 if (race.isRacing)

@@ -16,19 +16,19 @@
                             <h3 class="name">{{race.name | uppercase}}</h3>
                             <!--removed to test json data without date-->
                             <!--<p class="date">{{race.date | date:'MMM d, y, h:mm a' }}</p>-->
-                            <p>{{race.about}}</p>
+                            <p class="about">{{race.about}}</p>
                         </td>
                         <td class="right-col">
                             <div class="quantity">
-                                <p class="promotions"><span class="space-right"> Race Tees!</span> {{race.tshirt | currency:'USD':true}}</p>
+                                <div class="promotions"><span class="space-right">Race Tees!</span> {{race.tshirt | currency:'USD':true}}</div>
                                 <button class="decrease" (click)="downQuantity(race)">-</button>
                                 <input class="text-input" type="text" [(ngModel)]="race.quantity ">
                                 <button class="increase " (click)="upQuantity(race) ">+</button>
                             </div>
-                            <div class="in-stock ">
+                            <p class="in-stock ">
                                 In stock: {{race.stock}}
                                 <!--<p>In stock: {{inStock(race)}}</p>-->
-                            </div>
+                            </p>
                             <div class="price-quantity ">
                                 <p class="entry-fee ">{{race.entryFee | currency:'USD':true}}</p>
                                 <button class="color-change " *ngIf="!race.isRacing " (click)="enterRace(race) ">Enter Race</button>
